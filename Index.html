@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="مرحبًا بك في موقع LOT">
+    <title>LOT | الصفحة الرئيسية</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="js/main.js" defer></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+</head>
+<body>
+    <!-- Header with Language and Dark Mode -->
+<div id="header">
+    <div id="menu-toggle" onclick="toggleMenu()">
+        <i class="menu-icon" id="menuIcon"><img src="images/logo/icon.png"></i>
+    </div>
+    <div id="side-menu">
+        <div class="side-menu-header" id="sideMenuHeader">
+            <span class="close-btn" id="closeMenuBtn" onclick="toggleMenu()">×</span>
+        </div>
+        <ul class="menu-links">
+            <li><a href="index.html" id="listMain">الرئيسية</a></li>
+            <li><a href="#about" id="aboutLink">من نحن</a></li>
+            <li><a href="#servicesTitle" id="servicesLink">الخدمات</a></li>
+            <li><a href="#port" id="portfolioLink">الأعمال</a></li>
+            <li><a href="#contact" id="contactLink">تواصل معنا</a></li>
+        </ul>
+        <div class="language-toggle" id="languageToggleContainer">
+            <button onclick="changeLanguage('ar')" id="Arab">عربي</button>
+            <button onclick="changeLanguage('en')" id="Eng">English</button>
+        </div>
+    </div>
+    <div id="dark-mode-toggle" onclick="toggleDarkMode()">
+        <i id="dark-mode-icon">🌙</i> <span id="dark-mode-text">الوضع الليلي</span>
+    </div>
+    <div id="links">
+        <a href="index.html" class="nav-link" id="listMainB">الرئيسية</a>
+        <a href="#about" class="nav-link" id="aboutNav">من نحن</a>
+        <a href="#servicesTitle" class="nav-link" id="servicesNav">الخدمات</a>
+        <a href="#port" class="nav-link" id="portfolioNav">الأعمال</a>
+        <a href="#contact" class="nav-link" id="contactNav">تواصل معنا</a>
+    </div>
+    <div id="language-toggle">
+        <button onclick="changeLanguage('ar')" id="arabicLang">عربي</button>
+        <button onclick="changeLanguage('en')" id="englishLang">English</button>
+    </div>
+</div>
+
+    <!-- Hero Section -->
+	<section class="hero">
+		<div class="hero-content">
+	<div id="logos">
+		<img id="logo-light" src="images/logo/logo2.png" alt="Light Logo" style="padding-top: 0%;">
+		<img id="logo-dark" src="images/logo/logo.png" alt="Dark Logo" style="padding-top: 0%; display: none;">
+	</div>
+
+		</div>
+	</section>
+	
+	<section class="about-us" id="about">
+    <h2 id="aboutTitle">من نحن</h2>
+    <p id="aboutDesc">
+        شركة LOT ليست مجرد شركة تسويق وتصميم، بل شريك استراتيجي لإحياء رؤيتك وتحقيق تأثير قوي في السوق. نتميز بفهمنا العميق لاحتياجات العملاء وثقافة السوق المحلي والعالمي، مما يمكننا من تصميم حلول تسويقية مبتكرة وهويات بصرية تُلهم الجمهور وتعزز مكانة علامتك التجارية. نؤمن بأن كل علامة تجارية تحمل قصة تستحق أن تُروى بأسلوب استثنائي، ونحن هنا لنساعدك على جعل هذه القصة تنبض بالحياة. اختر LOT لنكون شريكك في بناء تجربة فريدة تُحدث الفارق.
+    </p>
+	</section>
+
+<section class="services">
+    <h2 id="servicesTitle">خدماتنا</h2>
+    <div class="services-container">
+        <!-- التخطيط والاستراتيجية -->
+        <div class="service-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3 id="service1Title">التخطيط والاستراتيجية</h3>
+                </div>
+                <div class="card-back">
+                    <ul id="service1Desc">
+                        <li id="s1">تطوير استراتيجيات متكاملة للعلامات التجارية.</li>
+                        <li id="s2">إعداد دراسات جدوى دقيقة ومدروسة.</li>
+                        <li id="s3">تصميم أنظمة وهوية متكاملة للعلامات التجارية.</li>
+                        <li id="s4">إنشاء خطط تسويقية مبتكرة وموجهة.</li>
+                        <li id="s5">تطوير العلامات التجارية لتعزيز حضورها.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- التصميم -->
+        <div class="service-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3 id="service2Title">التصميم</h3>
+                </div>
+                <div class="card-back">
+                    <ul id="service2Desc">
+                        <li id="s6">تصميم شعارات متميزة تعبر عن هوية العلامة.</li>
+                        <li id="s7">إنشاء واجهات مبتكرة وتجربة مستخدم سلسة.</li>
+                        <li id="s8">تصميم جرافيكي يدمج بين الجمال والإبداع.</li>
+                        <li id="s9">تصميم محتوى مرئي ومؤثر.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- البرمجة -->
+        <div class="service-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3 id="service3Title">البرمجة</h3>
+                </div>
+                <div class="card-back">
+                    <ul id="service3Desc">
+                        <li id="s10">برمجة مواقع إلكترونية متكاملة.</li>
+                        <li id="s11">تطوير متاجر إلكترونية حديثة وعملية.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- التسويق الإلكتروني -->
+        <div class="service-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3 id="service4Title">التسويق الإلكتروني</h3>
+                </div>
+                <div class="card-back">
+                    <ul id="service4Desc">
+                        <li id="s12">تحليل الأسواق والمنافسين بدقة.</li>
+                        <li id="s13">إعداد خطط تسويقية إلكترونية مبتكرة.</li>
+                        <li id="s14">تحسين الأداء التسويقي للمشاريع.</li>
+                        <li id="s15">كتابة وصناعة محتوى إبداعي يخدم الأهداف التسويقية.</li>
+                        <li id="s16">تحسين محركات البحث (SEO) لضمان ظهور مميز.</li>
+                        <li id="s17">إطلاق حملات إعلانية مدروسة وإدارتها بكفاءة.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- إدارة المحتوى -->
+        <div class="service-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3 id="service5Title">إدارة المحتوى</h3>
+                </div>
+                <div class="card-back">
+                    <ul id="service5Desc">
+                        <li id="s18">إدارة حسابات وسائل التواصل الاجتماعي.</li>
+                        <li id="s19">تصميم إعلانات وبوستات جاذبة على السوشال ميديا.</li>
+                        <li id="s20">إنتاج فيديوهات إعلانية تعكس هوية المشروع.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- صناعة المحتوى -->
+        <div class="service-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3 id="service6Title">صناعة المحتوى</h3>
+                </div>
+                <div class="card-back">
+                    <ul id="service6Desc">
+                        <li id="s21">كتابة محتوى مبدع ومتجدد.</li>
+                        <li id="s22">تطوير نصوص إعلانية تسويقية.</li>
+                        <li id="s23">إنتاج محتوى إلكتروني موجه للمواقع.</li>
+                        <li id="s24">كتابة مقالات تسويقية ووصف المنتجات.</li>
+                        <li id="s25">صياغة سيناريوهات فيديوهات إبداعية.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+	<section class="portfolio" id="port">
+	  <h2 id="ourworkTitle">أعمالنا</h2>
+	  <div class="portfolio-gallery">
+		<img src="images/portfolio1.jpg" alt="Project 1" />
+		<img src="images/portfolio2.jpg" alt="Project 2" />
+		<img src="images/portfolio3.jpg" alt="Project 3" />
+	  </div>
+	</section>
+    <!-- Footer -->
+	<section class="contact-us" id="contact">
+    <h2 id="contactTitle">تواصل معنا</h2>
+    <p id="contactDesc">نسعد بتواصلكم معنا لتقديم أي استفسار أو طلب.</p>
+    <div class="contact-details">
+        <p id="phone"><strong>الهاتف:</strong> +967 774 710 797 </p>
+        <p id="email"><strong>البريد الإلكتروني:</strong> lotmedia2024@gmail.com</p>
+        <!-- <p id="addresss"><strong>العنوان:</strong> صنعاء, اليمن</p> -->
+    </div>
+</section>
+
+<footer>
+    <div class="footer-links" id="footer-links">
+        <a href="https://www.facebook.com/profile.php?id=61569356821428&mibextid=ZbWKwL" target="_blank">فيسبوك</a> | 
+        <a href="https://wa.me/message/B4SJ3OOZV2DBE1" target="_blank">واتساب</a> | 
+        <a href="https://www.instagram.com/lot_media_?igsh=MXN0ZjRuNGFlZXgzOA==" target="_blank">انستقرام</a>
+    </div>
+    <p id="footerText" style="text-align: center">© 2024 جميع الحقوق محفوظة لـ LOT</p>
+</footer>
+</body>
+</html>
