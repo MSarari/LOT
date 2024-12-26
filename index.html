@@ -22,7 +22,7 @@
             <span class="close-btn" id="closeMenuBtn" onclick="toggleMenu()">×</span>
         </div>
         <ul class="menu-links">
-            <li><a href="index.html" id="listMain">الرئيسية</a></li>
+            <li><a href="#hero" id="listMain">الرئيسية</a></li>
             <li><a href="#about" id="aboutLink">من نحن</a></li>
             <li><a href="#servicesTitle" id="servicesLink">الخدمات</a></li>
             <li><a href="#port" id="portfolioLink">الأعمال</a></li>
@@ -37,7 +37,7 @@
         <i id="dark-mode-icon">🌙</i> <span id="dark-mode-text">الوضع الليلي</span>
     </div>
     <div id="links">
-        <a href="index.html" class="nav-link" id="listMainB">الرئيسية</a>
+        <a href="#hero" class="nav-link" id="listMainB">الرئيسية</a>
         <a href="#about" class="nav-link" id="aboutNav">من نحن</a>
         <a href="#servicesTitle" class="nav-link" id="servicesNav">الخدمات</a>
         <a href="#port" class="nav-link" id="portfolioNav">الأعمال</a>
@@ -50,7 +50,7 @@
 </div>
 
     <!-- Hero Section -->
-	<section class="hero">
+	<section class="hero" id="hero">
 		<div class="hero-content">
 	<div id="logos">
 		<img id="logo-light" src="images/logo/logo2.png" alt="Light Logo" style="padding-top: 0%;">
@@ -167,23 +167,47 @@
                 </div>
             </div>
         </div>
+		<!-- الهندسة الصوتية -->
+		<div class="service-card">
+			<div class="card-inner">
+				<div class="card-front">
+					<h3 id="service7Title">الهندسة الصوتية</h3>
+				</div>
+				<div class="card-back">
+					<ul id="service7Desc">
+						<li id="s26">تعليق صوتي يناسب جميع احتياجاتك</li>
+						<li id="s27">هندسة صوتية متكاملة</li>
+					</ul>
+				</div>
+			</div>
+		</div>
     </div>
 </section>
+<section class="portfolio" id="port">
+  <h2 id="ourworkTitle">أعمالنا</h2>
+  <div class="portfolio-gallery">
+    <img src="images/portfolio1.jpg" alt="Project 1" class="portfolio-item" />
+    <img src="images/portfolio2.jpg" alt="Project 2" class="portfolio-item" />
+    <img src="images/portfolio3.jpg" alt="Project 3" class="portfolio-item" />
+    <img src="images/portfolio4.jpg" alt="Project 4" class="portfolio-item" />
+    <img src="images/portfolio5.jpg" alt="Project 5" class="portfolio-item" />
+  </div>
 
-	<section class="portfolio" id="port">
-	  <h2 id="ourworkTitle">أعمالنا</h2>
-	  <div class="portfolio-gallery">
-		<img src="images/portfolio1.jpg" alt="Project 1" />
-		<img src="images/portfolio2.jpg" alt="Project 2" />
-		<img src="images/portfolio3.jpg" alt="Project 3" />
-	  </div>
-	</section>
+  <!-- Modern Modal -->
+  <div class="modern-modal">
+    <div class="modal-content">
+      <img id="modernModalImage" />
+      <span class="close-btn">&times;</span>
+    </div>
+  </div>
+</section>
+
     <!-- Footer -->
 	<section class="contact-us" id="contact">
     <h2 id="contactTitle">تواصل معنا</h2>
     <p id="contactDesc">نسعد بتواصلكم معنا لتقديم أي استفسار أو طلب.</p>
     <div class="contact-details">
-        <p id="phone"><strong>الهاتف:</strong> +967 774 710 797 </p>
+        <p id="phone"><strong>الهاتف:</strong> +967 783 973 909 </p>
         <p id="email"><strong>البريد الإلكتروني:</strong> lotmedia2024@gmail.com</p>
         <!-- <p id="addresss"><strong>العنوان:</strong> صنعاء, اليمن</p> -->
     </div>
@@ -192,10 +216,26 @@
 <footer>
     <div class="footer-links" id="footer-links">
         <a href="https://www.facebook.com/profile.php?id=61569356821428&mibextid=ZbWKwL" target="_blank">فيسبوك</a> | 
-        <a href="https://wa.me/message/B4SJ3OOZV2DBE1" target="_blank">واتساب</a> | 
+        <a href="https://wa.me/967783973909" target="_blank">واتساب</a> | 
         <a href="https://www.instagram.com/lot_media_?igsh=MXN0ZjRuNGFlZXgzOA==" target="_blank">انستقرام</a>
     </div>
     <p id="footerText" style="text-align: center">© 2024 جميع الحقوق محفوظة لـ LOT</p>
 </footer>
+
+<div id="contact-button">
+    <button id="contact-toggle" onclick="toggleContactMenu()">
+        <img src="https://img.icons8.com/ios-filled/50/FFFFFF/chat.png" alt="تواصل معنا">
+    </button>
+    <ul id="contact-menu">
+        <li><a href="https://www.facebook.com/profile.php?id=61569356821428&mibextid=ZbWKwL" target="_blank">
+            <img src="https://img.icons8.com/fluency/48/000000/facebook-new.png" alt="Facebook"></a></li>
+        <li><a href="https://www.instagram.com/lot_media_?igsh=MXN0ZjRuNGFlZXgzOA==" target="_blank">
+            <img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" alt="Instagram"></a></li>
+        <li><a href="https://wa.me/967783973909" target="_blank">
+            <img src="https://img.icons8.com/fluency/48/000000/whatsapp.png" alt="WhatsApp"></a></li>
+    </ul>
+</div>
+
+
 </body>
 </html>
