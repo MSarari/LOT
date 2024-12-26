@@ -1,30 +1,4 @@
-function toggleDarkMode() {
-
-    document.body.classList.toggle("dark-mode");
-
-	// تحديث النص للوضع الليلي/النهاري
-    const darkModeText = document.getElementById("dark-mode-text");
-    const darkModeIcon = document.getElementById("dark-mode-icon");
-    
-    if (document.body.classList.contains("dark-mode")) {
-        darkModeText.textContent = "الوضع الطبيعي"; // تغيير النص للوضع الطبيعي
-        darkModeIcon.textContent = "🌞";  // تغيير الأيقونة إلى الشمس
-    } else {
-        darkModeText.textContent = "الوضع الليلي";  // النص للوضع الليلي
-        darkModeIcon.textContent = "🌙";  // تغيير الأيقونة إلى القمر
-    }
-
-    // تغيير الشعار عند تفعيل الوضع الليلي
-    const logoLight = document.getElementById("logo-light");
-    const logoDark = document.getElementById("logo-dark");
-    if (document.body.classList.contains("dark-mode")) {
-        logoLight.style.display = "none";
-        logoDark.style.display = "block";
-    } else {
-        logoLight.style.display = "block";
-        logoDark.style.display = "none";
-    }
-};
+let currentLang = document.documentElement.lang; // تتبع اللغة الحالية
 
 const translations = {
     en: {
@@ -100,6 +74,11 @@ const translations = {
             twitter: "WhatsApp",
             instagram: "Instagram",
 		},
+		service7Title: "Audio Engineering",
+        service7Desc: [
+            "Voiceover for all your needs.",
+            "Comprehensive audio engineering."
+        ],
     
 	},
     ar: {
@@ -175,11 +154,22 @@ const translations = {
             twitter: "واتساب",
             instagram: "انستقرام",
 		},
+		service7Title: "الهندسة الصوتية",
+        service7Desc: [
+            "تعليق صوتي يناسب جميع احتياجاتك",
+            "هندسة صوتية متكاملة"
+        ],
     },
 };
 
 // Change Language
 function changeLanguage(lang) {
+	currentLang = lang;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    updateButtonPosition(lang); // تحديث موقع زر "تواصل معنا"
+    updateDarkModeText(); // تحديث نصوص الوضع الليلي
+	
     document.getElementById("listMain").textContent = translations[lang].listMain;
     document.getElementById("listMainB").textContent = translations[lang].listMainB;
     document.getElementById("aboutLink").textContent = translations[lang].aboutLink;
@@ -200,6 +190,7 @@ function changeLanguage(lang) {
     document.getElementById("contactDesc").textContent = translations[lang].contactDesc;
     document.getElementById("footerText").textContent = translations[lang].footerText;
     document.getElementById("dark-mode-text").textContent = translations[lang].darkModeText;
+    document.getElementById("ourworkTitle").textContent = translations[lang].ourworkTitle;
 
     // Update About Us section
     document.getElementById("aboutTitle").textContent = translations[lang].aboutTitle;
@@ -231,6 +222,11 @@ function changeLanguage(lang) {
     document.getElementById("service6Title").textContent = translations[lang].service6Title;
     updateListItems("service6Desc", translations[lang].service6Desc);
 
+	// Update service 7
+	document.getElementById("service7Title").textContent = translations[lang].service7Title;
+	updateListItems("service7Desc", translations[lang].service7Desc);
+
+
     document.getElementById("footerText").textContent = translations[lang].footerText;
     const footerLinks = document.querySelector(".footer-links");
     footerLinks.innerHTML = `
@@ -239,9 +235,7 @@ function changeLanguage(lang) {
         <a href="https://www.instagram.com/lot_media_?igsh=MXN0ZjRuNGFlZXgzOA==" target="_blank">${translations[lang].socialLinks.instagram}</a>
     `;
 	
-	// تحديث اتجاه النصوص واللغة
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
 	
 	const sideMenu = document.getElementById('side-menu');
     if (sideMenu.classList.contains('active')) {
@@ -265,11 +259,29 @@ function changeLanguage(lang) {
 	    // Contact section
     document.getElementById("contactTitle").textContent = translations[lang].contactTitle;
     document.getElementById("contactDesc").textContent = translations[lang].contactDesc;
-    document.getElementById("phone").innerHTML = `<strong>${translations[lang].phone}</strong> +967 774 710 797`;
+    document.getElementById("phone").innerHTML = `<strong>${translations[lang].phone}</strong> +967 783 973 909`;
     document.getElementById("email").innerHTML = `<strong>${translations[lang].email}</strong> lotmedia2024@gmail.com`;
     document.getElementById("address").innerHTML = `<strong>${translations[lang].address}</strong> صنعاء, اليمن`;
-	
+
+    updateButtonPosition(lang); // تحديث موقع زر "تواصل معنا"
 }
+
+
+function updateDarkModeText() {
+    const darkModeText = document.getElementById("dark-mode-text");
+    const darkModeIcon = document.getElementById("dark-mode-icon");
+
+    if (document.body.classList.contains("dark-mode")) {
+        // إذا كان الوضع الليلي مفعل
+        darkModeText.textContent = currentLang === "ar" ? "الوضع الطبيعي" : "Default Mode";
+        darkModeIcon.textContent = currentLang === "ar" ? "🌞" : "☀️";
+    } else {
+        // إذا كان الوضع الطبيعي مفعل
+        darkModeText.textContent = currentLang === "ar" ? "الوضع الليلي" : "Dark Mode";
+        darkModeIcon.textContent = currentLang === "ar" ? "🌙" : "🌙";
+    }
+};
+
 function updateListItems(listId, items) {
     const ul = document.getElementById(listId);
     ul.innerHTML = ""; // Clear current list items
@@ -325,7 +337,26 @@ document.addEventListener("DOMContentLoaded", () => {
             gsap.to(img, { scale: 1, duration: 0.3, ease: "power1.out" });
         });
     });
+    updateDarkModeText(); // تحديث النصوص بناءً على اللغة عند تحميل الصفحة
+
 });
+
+function toggleDarkMode() {
+
+    document.body.classList.toggle("dark-mode");
+    // تغيير الشعار عند تفعيل الوضع الليلي
+    const logoLight = document.getElementById("logo-light");
+    const logoDark = document.getElementById("logo-dark");
+    if (document.body.classList.contains("dark-mode")) {
+        logoLight.style.display = "none";
+        logoDark.style.display = "block";
+    } else {
+        logoLight.style.display = "block";
+        logoDark.style.display = "none";
+    }
+	updateDarkModeText(); // تحديث النصوص بعد تغيير الوضع
+
+};
 
 function toggleMenu() {
     const sideMenu = document.getElementById('side-menu');
@@ -349,6 +380,62 @@ function toggleMenu() {
             gsap.to(sideMenu, { left: '0', duration: 0.5, ease: "power3.out" });
         }
         sideMenu.classList.add('active');
+    }
+}
+// Modern Modal Logic
+const modal = document.querySelector(".modern-modal");
+const modalImg = document.getElementById("modernModalImage");
+const closeBtn = document.querySelector(".close-btn");
+
+// Show modal when image is clicked
+document.querySelectorAll(".portfolio-item").forEach((img) => {
+  img.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+  });
+});
+
+// Close modal on close button click
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// Close modal on click outside the image
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
+function toggleContactMenu() {
+    const contactMenu = document.getElementById("contact-menu");
+    contactMenu.style.display = contactMenu.style.display === "flex" ? "none" : "flex";
+}
+
+// Adjust button position based on language dynamically
+document.addEventListener("DOMContentLoaded", () => {
+    const contactButton = document.getElementById("contact-button");
+    const currentLang = document.documentElement.lang;
+
+    if (currentLang === "ar") {
+        contactButton.style.right = "20px";
+        contactButton.style.left = "auto";
+    } else {
+        contactButton.style.left = "20px";
+        contactButton.style.right = "auto";
+    }
+});
+
+// Listen for language change and update position
+function updateButtonPosition(lang) {
+    const contactButton = document.getElementById("contact-button");
+
+    if (lang === "ar") {
+        contactButton.style.right = "20px";
+        contactButton.style.left = "auto";
+    } else {
+        contactButton.style.left = "20px";
+        contactButton.style.right = "auto";
     }
 }
 
